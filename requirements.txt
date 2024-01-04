@@ -1,0 +1,10 @@
+uvicorn==0.25.0
+fastapi==0.108.0
+pydantic[email]==2.5.3
+mysql-connector-python==8.2.0
+sqlalchemy==1.4.49
+python-dotenv==1.0.0
+pytest==7.4.4
+httpx
+python-multipart
+pillow
