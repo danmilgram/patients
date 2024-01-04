@@ -7,6 +7,7 @@ services:
       context: .
       dockerfile: Dockerfile
     command: uvicorn main:app --host 0.0.0.0 --port 80 --reload
+    container_name: patients-web
     volumes:
       - ./app:/app
     env_file:
@@ -25,6 +26,7 @@ services:
       MYSQL_DATABASE: ${DATABASE_NAME}
     ports:
       - 3308:3306
+    container_name: patients-db
     healthcheck:
       test: mysqladmin ping -h 127.0.0.1 -u root --password=$$MYSQL_ROOT_PASSWORD
       start_period: 5s

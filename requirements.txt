@@ -5,6 +5,6 @@ mysql-connector-python==8.2.0
 sqlalchemy==1.4.49
 python-dotenv==1.0.0
 pytest==7.4.4
-httpx
-python-multipart
-pillow
+httpx==0.26.0
+python-multipart==0.0.6
+pillow==10.2.0
