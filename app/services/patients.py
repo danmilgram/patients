@@ -14,14 +14,21 @@ class PatientsService():
             patient: schemas.Patient,
             file_content: bytes
         ) -> Patient:
+
+        # Create patient
         db_patient = Patient(
             email=patient.email,
             name=patient.name,
             address=patient.address,
             phone=patient.phone,
-            document=file_content
             )
         db.add(db_patient)
         db.commit()
         db.refresh(db_patient)
+
+        # Save patient document
+        with open(f"documents/{patient.email}_document.jpg", "wb") as f:
+            f.write(file_content)
+
+
         return db_patient
