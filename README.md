@@ -15,7 +15,7 @@
 - To run the app:
     1. create an .env file with the required values and put it in the `/app` folder (see copy.env which has the required variables)
     2. run `docker-compose build`. This will build 2 images, one for the app and one for the mySQL DB.
-    3. run `docker-compose up`. This will start the whole application. Wait at least 10 seconds for both services to initialise.
+    3. run `docker-compose up`. This will start the whole application. Wait at least 20 seconds for both services to initialise.
     4. The application is running!
 
 - To run unit and e2e tests:
