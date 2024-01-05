@@ -5,7 +5,7 @@
         - `patients-web`: A web service running the Python FastAPI framework inside a Python 3.11 image.
         - `patients-db`: DB service running a MySql 5.7 database.
 
-    The API has a main endpoint (`POST /patients`) to register new patients. It performs some basic validations, creates a record in the db and sends a notification to the patient using the notification service. An email channel has been configured to send notification emails, but in the near future any other channel can be easily configured.
+    The API has a main endpoint (`POST /patients`) to register new patients. It performs some basic validations, creates a record in the db, saves the patient's document and sends a notification to the patient using the notification service. An email channel has been configured to send notification emails, but in the near future any other channel can be easily configured.
 
     The second endpoint is a simple `GET /patients` to return all registered patients.
 
@@ -33,7 +33,7 @@
 - Some good improvements that could be done to have a better API:
     * Improve tests
 
-    * Currently the images are stored in the database. This can be improved by using an external service such as Amazon S3 or similar.
+    * Currently the images are stored in a folder in the server. This can be improved by using an external service such as Amazon S3 or similar.
 
     * Add some kind of authentication (e.g. using bearer tokens)
 
