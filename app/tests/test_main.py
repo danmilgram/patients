@@ -46,6 +46,7 @@ class TestMain(TestCase):
 
     def test_post_patient(self):
 
+        # create new patient
         file_path = '{}/tests/test-image.jpg'.format(os.getcwd())
         response = client.post(
             '/patients',
@@ -54,9 +55,12 @@ class TestMain(TestCase):
         )
         self.assertEqual(response.status_code,200)
         self.assertEqual(response.json(), self.create_patient_payload)
+        # verify that the image file was uploaded to the server
+        self.assertTrue(os.path.exists("documents/fakeemail@gmail.com_document.jpg"))
 
     def test_post_patient_invalid_content_type(self):
 
+        # post patient with invalid image type
         file_path = '{}/tests/test-image.jpg'.format(os.getcwd())
         response = client.post(
             '/patients',
@@ -70,6 +74,7 @@ class TestMain(TestCase):
 
     def test_post_patient_invalid_email(self):
 
+        # post patient with invalid email
         invalid_email_payload = self.create_patient_payload.copy()
         invalid_email_payload.update({'email':'thisisaninvalidemail'})
 
@@ -96,6 +101,7 @@ class TestMain(TestCase):
         )
         self.assertEqual(response.status_code, 200)
 
+        # try to add the same patient again
         file_path = '{}/tests/test-image.jpg'.format(os.getcwd())
         response = client.post(
             '/patients',
@@ -118,6 +124,7 @@ class TestMain(TestCase):
         )
         self.assertEqual(response.status_code, 200)
 
+        # get all patients
         response = client.get(
             '/patients'
         )
